@@ -14,10 +14,10 @@ const ClassList: React.FC<ClassListProps> = ({ classList, attributeSelection, se
 
       const meetCharactersRequirments = (requirements, attributeSelection) => {
             var minimumReqMeets = Object.keys(requirements).every((attr) => {
-                const min = requirements[attr as keyof Attributes];
+                const minValue = requirements[attr as keyof Attributes];
                 //console.log("selection:", attributeSelection);
                 const currentValue  = attributeSelection[attr as keyof Attributes];
-                return currentValue >= min;
+                return currentValue >= minValue;
             });
             return minimumReqMeets;
       }

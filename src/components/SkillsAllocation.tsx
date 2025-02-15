@@ -10,7 +10,7 @@ interface SkillsAllocationProps{
 export const SkillsAllocation: React.FC<SkillsAllocationProps> = ({attribute, selectedClass}) => {
     const initSkills = useMemo(()=>{
         return Object.fromEntries(
-            SKILL_LIST.map((skill) => [skill, 0])
+            SKILL_LIST.map((skill) => [skill.name, 0])
         );
     }, [])
 

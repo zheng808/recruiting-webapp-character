@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.class-list{
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: hsl(220deg 13% 13%);
+  color: #fff;
+}
+
+.class-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.class-list li {
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}

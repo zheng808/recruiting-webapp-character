@@ -34,18 +34,18 @@ export const SkillsAllocation: React.FC<SkillsAllocationProps> = ({attribute, se
            <div>
                     <p>Available Points: {remainingPoints} / {totalSkillPoints}</p>
                     {SKILL_LIST.map(({ name, attributeModifier }) => {
-                    const abilityModifier = Math.floor((attribute[attributeModifier] - 10) / 2);
-                    const skillpoint = pointsSkill[name];
-                    const totalValue = skillpoint + abilityModifier;
+                        const abilityModifier = Math.floor((attribute[attributeModifier] - 10) / 2);
+                        const skillpoint = pointsSkill[name];
+                        const totalValue = skillpoint + abilityModifier;
 
-                    return (
-                        <div key={name}>
-                        <strong>{name}</strong> - Points: {skillpoint} 
-                        <button onClick={() => adjustPoints(name, 1)} disabled={remainingPoints == 0}>+</button>
-                        <button onClick={() => adjustPoints(name, -1)} disabled={skillpoint <= 0}>-</button>
-                        Modifier ({attributeModifier}): {abilityModifier} --- Total: {totalValue}
-                        </div>
-                    );
+                        return (
+                            <div key={name}>
+                            <strong>{name}</strong> - Points: {skillpoint} 
+                            <button onClick={() => adjustPoints(name, 1)} disabled={remainingPoints == 0}>+</button>
+                            <button onClick={() => adjustPoints(name, -1)} disabled={skillpoint <= 0}>-</button>
+                            Modifier ({attributeModifier}): {abilityModifier} --- Total: {totalValue}
+                            </div>
+                        );
                     })}
                 </div>
             )}

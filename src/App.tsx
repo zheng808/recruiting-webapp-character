@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { ATTRIBUTE_LIST, CLASS_LIST } from './consts';
 import AttributeRow from './components/AttributeRow';
 import ClassList from './components/ClassList';
 import { Attributes, Class } from './types';
 import { SkillsAllocation } from './components/SkillsAllocation';
-import {save_url} from './constant/Api';
+import {save_url, get_url} from './constant/Api';
 
 function App() {
   const [attributesSelection, setAttributesSelection] = useState(
@@ -14,10 +14,11 @@ function App() {
   const [selectedClass, setSelectedClass] = useState<Class>();
 
   const updateAttribute = (attr, change) => {
-    setAttributesSelection(prev => ({
+    setAttributesSelection((prev) => ({
       ...prev,
       [attr]: prev[attr] + change
-    }));
+    })
+    );
   };
 
   const handleClassSelection = (selected: Class) =>{
@@ -46,7 +47,23 @@ function App() {
         console.error("something goes wrong")
       }
   }
-
+  useEffect(()=>{
+      const retrieveCharacter = async() =>{
+        try{
+          const res = await fetch(get_url, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+          });
+          console.log(res);
+        }catch(error){
+          console.error("something goes wrong")
+        }
+      }
+      retrieveCharacter();
+  }, [])
+  
 
   return (
     <div className="App">
